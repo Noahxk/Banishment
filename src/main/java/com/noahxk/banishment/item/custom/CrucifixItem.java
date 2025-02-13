@@ -28,15 +28,13 @@ public class CrucifixItem extends Item {
             banishmentTarget = target;
         } else return InteractionResult.FAIL;
         banisher = player;
-        //target.setNoGravity(true);
-        //target.lerpTo(target.getX(), target.getY() + 7, target.getZ(), 0 ,0, 20);
         target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 1, false, false, false));
         player.startUsingItem(usedHand);
 
         return InteractionResult.SUCCESS;
     }
 
-    // Sets the 10 second use duration
+    // Sets the 10-second use duration
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 100;
@@ -73,7 +71,6 @@ public class CrucifixItem extends Item {
         if(!level.isClientSide()) {
             System.out.println("Released early");
             banisher.stopUsingItem();
-            //banishmentTarget.setNoGravity(false);
             banishmentTarget.removeAllEffects();
         }
 

@@ -1,6 +1,7 @@
 package com.noahxk.banishment;
 
 import com.noahxk.banishment.item.ModItems;
+import com.noahxk.banishment.worldgen.dimension.ModDimensions;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
@@ -32,7 +33,7 @@ public class Banishment {
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
+        // Note that this is necessary if and only if we want *this* class (Banishment) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
@@ -40,6 +41,7 @@ public class Banishment {
         modEventBus.addListener(this::addCreative);
 
         ModItems.register(modEventBus);
+        ModDimensions.register();
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -49,7 +51,6 @@ public class Banishment {
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.CRUCIFIX);
