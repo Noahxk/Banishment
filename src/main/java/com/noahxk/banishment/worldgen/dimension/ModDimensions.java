@@ -8,10 +8,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
 
 public class ModDimensions {
-    public static final ResourceKey<Level> WORLD_GAP_KEY = ResourceKey.create(Registries.DIMENSION,
-            ResourceLocation.parse("banishment:world_gap"));
-    public static final ResourceKey<DimensionType> WORLD_GAP_TYPE =
-            ResourceKey.create(Registries.DIMENSION_TYPE, WORLD_GAP_KEY.location());
+    public static final ResourceKey<Level> NULL_ZONE_KEY = ResourceKey.create(Registries.DIMENSION,
+            ResourceLocation.parse("banishment:null_zone"));
+    public static final ResourceKey<DimensionType> NULL_ZONE_TYPE =
+            ResourceKey.create(Registries.DIMENSION_TYPE, NULL_ZONE_KEY.location());
 
     public static void register() {
         System.out.println("Registering ModDimensions for " + Banishment.MOD_ID);

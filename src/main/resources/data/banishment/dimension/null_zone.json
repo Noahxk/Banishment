@@ -1,5 +1,5 @@
 {
-  "type": "banishment:world_gap",
+  "type": "banishment:null_zone",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
