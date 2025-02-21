@@ -1,5 +1,6 @@
 package com.noahxk.banishment.item.custom;
 
+import com.noahxk.banishment.data.attachment.ModAttachmentTypes;
 import com.noahxk.banishment.worldgen.dimension.ModDimensions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -9,6 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Relative;
@@ -18,9 +20,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.level.LevelEvent;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static com.noahxk.banishment.data.attachment.ModAttachmentTypes.BANISHED;
 
 public class CrucifixItem extends Item {
     public CrucifixItem(Properties properties) {
@@ -36,8 +41,7 @@ public class CrucifixItem extends Item {
     // Happens when the player starts using the item on another player
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand usedHand) {
-
-        if(target.isAlive()) {
+        if(target.isAlive() && target.getData(BANISHED) == false) {
             banishmentTarget = target;
         } else return InteractionResult.FAIL;
         banisher = player;
@@ -69,9 +73,7 @@ public class CrucifixItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         if(!level.isClientSide()) {
-            System.out.println("Used item");
             banisher.stopUsingItem();
-
             banish(level, banishmentTarget, banisher);
 
             stack.hurtAndBreak(1, (ServerLevel) level, banisher,
@@ -85,7 +87,6 @@ public class CrucifixItem extends Item {
     @Override
     public boolean releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
         if(!level.isClientSide()) {
-            System.out.println("Released early");
             banisher.stopUsingItem();
             banishmentTarget.removeEffect(MobEffects.LEVITATION);
         }
@@ -101,7 +102,8 @@ public class CrucifixItem extends Item {
             serverLevel.sendParticles(ParticleTypes.FLASH, target.getX(), target.getY(), target.getZ(), 1, 0, 0, 0, 0.001);
 
             Set<Relative> deltaMovement = new HashSet<>();
-            banishmentTarget.teleport(new TeleportTransition(level.getServer().getLevel(ModDimensions.NULL_ZONE_KEY), new Vec3(0, 60, 0), new Vec3(0, 0, 0), 0, 0, true, true, deltaMovement, TeleportTransition.PLAY_PORTAL_SOUND));
+            target.teleport(new TeleportTransition(level.getServer().getLevel(ModDimensions.NULL_ZONE_KEY), new Vec3(0, 60, 0), new Vec3(0, 0, 0), 0, 0, true, true, deltaMovement, TeleportTransition.PLAY_PORTAL_SOUND));
+            target.setData(BANISHED, true);
         }
     }
 }
