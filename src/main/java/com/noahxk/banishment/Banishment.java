@@ -1,6 +1,7 @@
 package com.noahxk.banishment;
 
 import com.noahxk.banishment.data.attachment.ModAttachmentTypes;
+import com.noahxk.banishment.data.component.ModDataComponents;
 import com.noahxk.banishment.event.ModEventHandler;
 import com.noahxk.banishment.item.ModItems;
 import com.noahxk.banishment.worldgen.dimension.ModDimensions;
@@ -46,6 +47,7 @@ public class Banishment {
         ModDimensions.register();
         NeoForge.EVENT_BUS.register(new ModEventHandler());
         ModAttachmentTypes.register(modEventBus);
+        ModDataComponents.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

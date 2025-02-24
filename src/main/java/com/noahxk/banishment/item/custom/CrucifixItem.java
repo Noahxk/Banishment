@@ -1,6 +1,8 @@
 package com.noahxk.banishment.item.custom;
 
 import com.noahxk.banishment.data.attachment.ModAttachmentTypes;
+import com.noahxk.banishment.data.component.ModDataComponents;
+import com.noahxk.banishment.item.ModItems;
 import com.noahxk.banishment.worldgen.dimension.ModDimensions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -32,16 +34,16 @@ public class CrucifixItem extends Item {
         super(properties);
     }
 
-    public static LivingEntity banishmentTarget;
-    public static Player banisher;
+    private LivingEntity banishmentTarget;
+    private Player banisher;
 
     // The crucifix's use duration in ticks
-    public static final int USE_DURATION = 100;
+    private static final int USE_DURATION = 100;
 
     // Happens when the player starts using the item on another player
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand usedHand) {
-        if(target.isAlive() && target.getData(BANISHED) == false) {
+        if(target.isAlive() && target.getData(BANISHED) == false && target instanceof Player) {
             banishmentTarget = target;
         } else return InteractionResult.FAIL;
         banisher = player;
@@ -104,6 +106,7 @@ public class CrucifixItem extends Item {
             Set<Relative> deltaMovement = new HashSet<>();
             target.teleport(new TeleportTransition(level.getServer().getLevel(ModDimensions.NULL_ZONE_KEY), new Vec3(0, 60, 0), new Vec3(0, 0, 0), 0, 0, true, true, deltaMovement, TeleportTransition.PLAY_PORTAL_SOUND));
             target.setData(BANISHED, true);
+            target.spawnAtLocation(serverLevel, ModItems.SOUL).getItem().set(ModDataComponents.BOUND_TO.get(), new ModDataComponents.BoundTo(target.getStringUUID()));
         }
     }
 }
