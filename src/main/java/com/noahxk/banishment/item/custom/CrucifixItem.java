@@ -1,6 +1,6 @@
 package com.noahxk.banishment.item.custom;
 
-import com.noahxk.banishment.misc.BanishmentStatus;
+import com.noahxk.banishment.misc.Banish;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -34,7 +34,7 @@ public class CrucifixItem extends Item {
     // Executes when the player starts using the item on another player
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand usedHand) {
-        if(target.isAlive() && !BanishmentStatus.isEntityBanished(target) && target instanceof Player) {
+        if(target.isAlive() && !Banish.isEntityBanished(target) && target instanceof Player) {
             banishmentTarget = target;
         } else return InteractionResult.FAIL;
         banisher = player;
@@ -61,7 +61,7 @@ public class CrucifixItem extends Item {
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         if(!level.isClientSide()) {
             banisher.stopUsingItem();
-            BanishmentStatus.banish(level, banishmentTarget, banisher);
+            Banish.banish(level, banishmentTarget, banisher);
 
             stack.hurtAndBreak(1, (ServerLevel) level, banisher,
                     item -> banisher.onEquippedItemBroken(item, EquipmentSlot.MAINHAND));

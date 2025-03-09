@@ -9,7 +9,7 @@
       "layers": [
         {
           "height": 1,
-          "block": "minecraft:obsidian"
+          "block": "banishment:void_fabric"
         }
       ]
     }

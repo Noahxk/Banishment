@@ -1,5 +1,6 @@
 package com.noahxk.banishment;
 
+import com.noahxk.banishment.block.ModBlocks;
 import com.noahxk.banishment.data.attachment.ModAttachmentTypes;
 import com.noahxk.banishment.data.component.ModDataComponents;
 import com.noahxk.banishment.event.ModEventHandler;
@@ -38,6 +39,7 @@ public class Banishment {
         modEventBus.addListener(this::addCreative);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModDimensions.register();
         NeoForge.EVENT_BUS.register(new ModEventHandler());
         ModAttachmentTypes.register(modEventBus);

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AAA",
+    " A "
+  ],
+  "key": {
+    "A": "minecraft:nether_star"
+  },
+  "result": {
+    "id": "banishment:crucifix",
+    "count": 1
+  },
+  "group": "misc"
+}

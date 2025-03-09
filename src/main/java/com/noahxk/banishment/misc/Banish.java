@@ -22,7 +22,7 @@ import java.util.Set;
 
 import static com.noahxk.banishment.data.attachment.ModAttachmentTypes.BANISHED;
 
-public class BanishmentStatus {
+public class Banish {
     public static void banish(Level level, LivingEntity target, Player exiler) {
         if(!level.isClientSide()) {
             // Banishing effects & sound

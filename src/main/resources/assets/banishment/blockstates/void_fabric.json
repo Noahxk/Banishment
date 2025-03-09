@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "banishment:block/void_fabric"
+    }
+  }
+}
