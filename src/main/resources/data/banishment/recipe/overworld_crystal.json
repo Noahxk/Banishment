@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " A ",
+    "AAA",
     "ABA",
-    " A "
+    "AAA"
   ],
   "key": {
-    "A": "minecraft:emerald",
+    "A": "minecraft:emerald_block",
     "B": "minecraft:nautilus_shell"
   },
   "result": {

@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " A ",
+    "AAA",
     "ABA",
-    " A "
+    "AAA"
   ],
   "key": {
-    "A": "minecraft:blaze_rod",
-    "B": "minecraft:netherite_scrap"
+    "A": "minecraft:netherite_ingot",
+    "B": "minecraft:blaze_rod"
   },
   "result": {
     "id": "banishment:nether_crystal",

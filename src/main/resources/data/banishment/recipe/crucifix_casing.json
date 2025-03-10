@@ -7,7 +7,7 @@
   ],
   "key": {
     "A": "minecraft:nether_star",
-    "B": "minecraft:gold_ingot"
+    "B": "minecraft:gold_block"
   },
   "result": {
     "id": "banishment:crucifix_casing",

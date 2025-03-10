@@ -1,13 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " A ",
+    "AAA",
     "ABA",
-    " A "
+    "ACA"
   ],
   "key": {
     "A": "minecraft:ender_eye",
-    "B": "minecraft:dragon_breath"
+    "B": "minecraft:dragon_breath",
+    "C": "minecraft:elytra"
   },
   "result": {
     "id": "banishment:end_crystal",
