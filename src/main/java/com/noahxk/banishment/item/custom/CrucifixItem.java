@@ -34,7 +34,7 @@ public class CrucifixItem extends Item {
     // Executes when the player starts using the item on another player
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand usedHand) {
-        if(target.isAlive() && !Banish.isEntityBanished(target) && target instanceof Player) {
+        if(target.isAlive() && !Banish.isEntityBanished(target) && target instanceof Player && target.getHealth() <= target.getMaxHealth() / 2) {
             banishmentTarget = target;
         } else return InteractionResult.FAIL;
         banisher = player;

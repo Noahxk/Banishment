@@ -3,12 +3,15 @@ package com.noahxk.banishment.misc;
 import com.noahxk.banishment.data.component.ModDataComponents;
 import com.noahxk.banishment.item.ModItems;
 import com.noahxk.banishment.worldgen.dimension.ModDimensions;
+import net.minecraft.client.renderer.entity.LightningBoltRenderer;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Relative;
 import net.minecraft.world.entity.player.Player;
@@ -44,7 +47,8 @@ public class Banish {
     public static void unbanish(Player player, UseOnContext context) {
         if(player.hasData(BANISHED)) {
             if(player.getData(BANISHED) == true) {
-                // Unbanishing effect
+                // Unbanishing effect & sound
+                context.getLevel().playSound(null, context.getClickedPos(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.PLAYERS, 100, 1);
                 ServerLevel serverLevel = (ServerLevel) context.getLevel();
                 serverLevel.sendParticles(ParticleTypes.FLASH, context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1, context.getClickedPos().getZ() + 0.5, 1, 0, 0, 0, 0.001);
 
