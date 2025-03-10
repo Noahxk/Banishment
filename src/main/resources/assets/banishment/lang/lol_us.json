@@ -1,5 +1,10 @@
 {
   "item.banishment.crucifix": "Kross of teh Godz",
   "item.banishment.soul": "Lost Souulz",
-  "block.banishment.void_fabric": "Voidz fabrick"
+  "block.banishment.void_fabric": "Voidz fabrick",
+  "item.banishment.crucifix_casing": "Crossy case",
+  "item.banishment.aether_crystal": "Shiny rock of teh skyz",
+  "item.banishment.end_crystal": "Shiny rock of teh finsh",
+  "item.banishment.nether_crystal": "Shiny rock of teh helz",
+  "item.banishment.overworld_crystal": "Shiny rock of teh upz"
 }

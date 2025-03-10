@@ -43,6 +43,21 @@ public class ModItems {
                     .component(DataComponents.DAMAGE_RESISTANT, new DamageResistant(DamageTypeTags.IS_FIRE))
             ));
 
+    public static final DeferredItem<Item> CRUCIFIX_CASING = ITEMS.register("crucifix_casing",
+            () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("banishment:crucifix_casing")))));
+
+    public static final DeferredItem<Item> AETHER_CRYSTAL = ITEMS.register("aether_crystal",
+            () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("banishment:aether_crystal")))));
+
+    public static final DeferredItem<Item> END_CRYSTAL = ITEMS.register("end_crystal",
+            () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("banishment:end_crystal")))));
+
+    public static final DeferredItem<Item> NETHER_CRYSTAL = ITEMS.register("nether_crystal",
+            () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("banishment:nether_crystal")))));
+
+    public static final DeferredItem<Item> OVERWORLD_CRYSTAL = ITEMS.register("overworld_crystal",
+            () -> new Item(new Item.Properties().useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("banishment:overworld_crystal")))));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

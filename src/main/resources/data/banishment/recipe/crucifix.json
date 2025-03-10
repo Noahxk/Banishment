@@ -1,12 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " A ",
-    "AAA",
-    " A "
+    " B ",
+    "EAC",
+    " D "
   ],
   "key": {
-    "A": "minecraft:nether_star"
+    "A": "banishment:crucifix_casing",
+    "B": "banishment:aether_crystal",
+    "C": "banishment:end_crystal",
+    "D": "banishment:nether_crystal",
+    "E": "banishment:overworld_crystal"
   },
   "result": {
     "id": "banishment:crucifix",

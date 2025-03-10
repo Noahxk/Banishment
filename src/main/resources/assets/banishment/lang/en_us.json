@@ -1,5 +1,10 @@
 {
   "item.banishment.crucifix": "Cross of the Gods",
   "item.banishment.soul": "Lost Soul",
-  "block.banishment.void_fabric": "Void Fabric"
+  "block.banishment.void_fabric": "Void Fabric",
+  "item.banishment.crucifix_casing": "Crucifix Casing",
+  "item.banishment.aether_crystal": "Crystal of the Aether",
+  "item.banishment.end_crystal": "Crystal of the End",
+  "item.banishment.nether_crystal": "Crystal of the Nether",
+  "item.banishment.overworld_crystal": "Crystal of the Overworld"
 }

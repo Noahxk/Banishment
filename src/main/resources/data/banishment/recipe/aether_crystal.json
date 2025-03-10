@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "ABA",
+    " A "
+  ],
+  "key": {
+    "A": "minecraft:diamond",
+    "B": "minecraft:ghast_tear"
+  },
+  "result": {
+    "id": "banishment:aether_crystal",
+    "count": 1
+  },
+  "group": "misc"
+}

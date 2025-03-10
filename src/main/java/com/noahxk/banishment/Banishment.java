@@ -56,6 +56,13 @@ public class Banishment {
         if(event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.CRUCIFIX);
         }
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.CRUCIFIX_CASING);
+            event.accept(ModItems.AETHER_CRYSTAL);
+            event.accept(ModItems.END_CRYSTAL);
+            event.accept(ModItems.NETHER_CRYSTAL);
+            event.accept(ModItems.OVERWORLD_CRYSTAL);
+        }
     }
 
     @SubscribeEvent
